@@ -445,7 +445,7 @@
 				// document.body.appendChild( container );
                 var a = document.getElementsByClassName("main full-width")
                 var container = a[0]
-                container.style.height = "900px" // set initial height
+                // container.style.height = "900px" // set initial height
 
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 3000 );
 				camera.position.z = 350;
@@ -470,6 +470,8 @@
                 
 				scene.fog = new THREE.Fog( 0xffffff, 100, 1000 );
 
+				console.log(container)
+
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
@@ -488,7 +490,7 @@
 
 				window.addEventListener( 'resize', onWindowResize );
 
-				const gui = new GUI();
+				// const gui = new GUI();
 
 
 				const effectController = {
@@ -509,10 +511,10 @@
 
 				valuesChanger();
 
-				gui.add( effectController, 'separation', 0.0, 100.0, 1.0 ).onChange( valuesChanger );
-				gui.add( effectController, 'alignment', 0.0, 100, 0.001 ).onChange( valuesChanger );
-				gui.add( effectController, 'cohesion', 0.0, 100, 0.025 ).onChange( valuesChanger );
-				gui.close();
+				// gui.add( effectController, 'separation', 0.0, 100.0, 1.0 ).onChange( valuesChanger );
+				// gui.add( effectController, 'alignment', 0.0, 100, 0.001 ).onChange( valuesChanger );
+				// gui.add( effectController, 'cohesion', 0.0, 100, 0.025 ).onChange( valuesChanger );
+				// gui.close();
 
 				initBirds();
 
