@@ -1,4 +1,6 @@
 /* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
+
+/* to only show articles on cell phone screens。 */
 #articles {
     color: red;
     @include respond(md) {

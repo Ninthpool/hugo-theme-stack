@@ -444,10 +444,20 @@
 				camera.position.z = 350;
 
 				scene = new THREE.Scene();
-                scene.background = new THREE.Color( 0xf5f5fa );
+
+				// get color for three js scene
+				var sceneColor
+				var mode = localStorage.getItem("StackColorScheme")
+				if (mode == 'dark') {
+					sceneColor = 0x303030
+				} else {
+					sceneColor = 0xEFF0F1
+				}
+
+                scene.background = new THREE.Color( sceneColor);
 
                 // to add dark mode support
-                var sceneColor
+                
                 var colorToggle = document.getElementById("dark-mode-toggle")
                 colorToggle.addEventListener('click', (e) => {
                     var mode = document.documentElement.dataset.scheme
@@ -456,7 +466,9 @@
                         sceneColor = 0x303030 // change to black night
                         scene.background = new THREE.Color( sceneColor );
                     } else {
-                        sceneColor = 0xf5f5fa // change to day
+                        // sceneColor = 0xf5f5fa // change to day
+
+						sceneColor = 0xEFF0F1
                         scene.background = new THREE.Color( sceneColor );
                     }
                 })
