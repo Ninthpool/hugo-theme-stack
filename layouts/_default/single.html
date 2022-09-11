@@ -30,6 +30,29 @@
         {{ partial "article/components/links" . }}
     {{ end }}
 
+    <nav class="post-nav">
+        <span>{{ with .NextInSection }}&larr; <a class="nav-link" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</span>
+        <span>{{ with .PrevInSection }}<a class="nav-link" href="{{ .RelPermalink }}">{{ .Title }}</a> &rarr;{{ end }}</span>
+    </nav>
+
+    <script type="text/javascript">
+        // for navigation using left and right button
+        document.addEventListener('keyup', function(e) {
+          if (e.target.nodeName.toUpperCase() != 'BODY') return;
+          var url = false;
+          if (e.which == 39) {  // Right arrow
+            {{ if .PrevInSection }}
+            url = '{{ .PrevInSection.RelPermalink }}';
+            {{ end }}
+          } else if (e.which == 37) {  // left arrow
+            {{ if .NextInSection }}
+            url = '{{ .NextInSection.RelPermalink }}';
+            {{ end }}
+          }
+          if (url) window.location = url;
+        });
+    </script>
+
     {{ partial "article/components/related-content" . }}
      
     {{ if not (eq .Params.comments false) }}

@@ -7,3 +7,22 @@
         display: none;
     }
 }
+
+/* navigation bar */
+.post-nav {
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700; // how bold the content is
+}
+
+.nav-link {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 0.2rem;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    text-decoration: none;
+}
