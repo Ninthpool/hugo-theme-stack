@@ -24,5 +24,45 @@
             {{- block "right-sidebar" . -}}{{ end }}
         </div>
         {{ partial "footer/include.html" . }}
+
+        
+
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <script>
+            // Get the button
+            let mybutton = document.getElementById("myBtn");
+            
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            
+            // helper documentElement property gives you the html element, while the document.body property gives you the body element.
+            const scrollContainer = () => {
+                return document.documentElement || document.body;
+            };
+
+            function scrollFunction() {
+                
+                // get percentage scrolled
+                const scrolledPercentage =
+                    Math.round(
+                        (scrollContainer().scrollTop /
+                        (scrollContainer().scrollHeight - scrollContainer().clientHeight)) * 100 );
+
+                mybutton.innerHTML =  "⇧ ".fontsize(3) + scrolledPercentage + "%"
+
+                // show when scroll over 500 pixels (or 50 percent)
+                if (scrollContainer().scrollTop > 500) {
+                    mybutton.style.display = "block";
+                    } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
     </body>
 </html>
