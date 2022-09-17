@@ -68,7 +68,7 @@
 }
 
 .right-sidebar {
-    width: 100%;
+    width: 40%; // before was 100%
     display: none;
     flex-direction: column;
     gap: var(--widget-separation);

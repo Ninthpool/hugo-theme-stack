@@ -41,3 +41,11 @@
 {{- if $image.exists -}}
     <meta property='og:image' content='{{ absURL $image.permalink }}' />
 {{- end -}}
+
+<!-- WeChat Sharing -->
+<script>
+    var WECHAT_TITLE = '九皋';
+    var WECHAT_DESC = '{{ $description }}';
+    var WECHAT_IMAGE = '{{ absURL $image.permalink }}';
+    var WCHAT_NO_GA = '';
+</script>

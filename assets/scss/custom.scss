@@ -1,6 +1,6 @@
 /* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
 
-/* to only show articles on cell phone screens。 */
+/* to only show articles in index page on cell phone screens。 */
 #articles {
     color: red;
     @include respond(md) {
@@ -14,6 +14,10 @@
     display: flex;
     justify-content: space-between;
     font-weight: 700; // how bold the content is
+    width: 100%;
+    @include respond(lg) {
+        width: 92%; // corresponding to .main-article (see article.scss)
+    }
 }
 
 .nav-link {
@@ -61,4 +65,10 @@
   
   #myBtn:hover {
     background-color: rgb(137, 125, 125);
+  }
+
+  #waline {
+    @include respond(lg) {
+        width: 92%; // corresponding to .main-article (see article.scss)
+    }
   }
