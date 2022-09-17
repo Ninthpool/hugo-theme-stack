@@ -72,3 +72,18 @@
         width: 92%; // corresponding to .main-article (see article.scss)
     }
   }
+
+  .toc-toggle-button {
+    z-index: -1;
+    position:absolute;
+    border: none;
+    height: 25px;
+    width: 25px;
+    border-radius: 50% 0 0 50%;
+    box-shadow: 0px 1px 4px 1px rgba(0 ,0, 0, .3);
+    top: 135px;
+    transform: translateX(-60%);
+    cursor: pointer;
+    text-align: center;
+    opacity: .6;
+  }

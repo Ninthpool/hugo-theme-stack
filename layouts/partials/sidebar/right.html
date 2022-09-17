@@ -2,6 +2,7 @@
 {{- $context := .Context -}}
 {{- with (index .Context.Site.Params.widgets $scope) -}}
     <aside class="sidebar right-sidebar sticky">
+        <button class="toc-toggle-button" onclick="toggle_toc()">></button>
         {{ range $widget := . }}
             {{ if templates.Exists (printf "partials/widget/%s.html" .type) }}
                 {{ partial (printf "widget/%s" .type) (dict "Context" $context "Params" .params) }}
@@ -10,4 +11,36 @@
             {{ end }}
         {{ end }}
     </aside>
+    <script>
+        var sidebar = document.getElementsByClassName("right-sidebar")
+        var widget = document.getElementsByClassName("widget")
+        var button = document.getElementsByClassName("toc-toggle-button")
+
+        // for the content collapsible button
+        function toggle_toc() {
+            if (sidebar[0].style.width != "0%") {
+                sidebar[0].style.width = "0%"
+                widget[0].style.display = "none"
+                button[0].innerHTML = "<"
+            } else {
+                sidebar[0].style.width = "40%"
+                widget[0].style.display = "flex"
+                button[0].innerHTML = ">"
+            }
+        }
+
+
+        window.addEventListener('scroll', (e) => {
+            if (scrollContainer().scrollTop > 2) {
+                // hide toggle button when scroll
+                if (sidebar[0].style.width == "0%") {
+                    button[0].style.display = "none"
+                }
+            } else {
+                // only show on top of the page
+                button[0].style.display = "flex"
+            }
+        })
+        
+    </script>
 {{ end }}
