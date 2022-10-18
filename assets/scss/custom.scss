@@ -1,5 +1,10 @@
 /* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
 
+/* smooth scroll to top transition. */
+html {
+    scroll-behavior: smooth;
+}
+
 /* to only show articles in index page on cell phone screens。 */
 #articles {
     color: red;
